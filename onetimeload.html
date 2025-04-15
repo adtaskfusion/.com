@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        /* Basic reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent scrollbars during loading */
+        }
+        
+        /* Background image styling */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('./11.gif') no-repeat center center fixed; /* Add your background image URL here */
+            background-size: cover; /* Cover the entire viewport */
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        
+        .loading-container h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.1); /* Light border */
+            border-left: 8px solid #ff007a; /* Color of the spinner */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div>
+            <h1>Loading...</h1>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to another page after 5 seconds
+        setTimeout(function() {
+            window.location.href = './2load.html'; // Replace with your target URL
+        }, 5000);
+    </script>
+</body>
+</html>

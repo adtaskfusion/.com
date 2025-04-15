@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Blogs & Earn Coins</title>
+  <link rel="stylesheet" href="css/v.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    nav {
+      background: #cc0cbf;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    .back-btn {
+      color: #fff;
+      font-size: 1.2em;
+      text-decoration: none;
+      padding: 10px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .back-btn i {
+      margin-right: 5px;
+    }
+
+    .blog-container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .blog-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-card h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .blog-card p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .blog-card button {
+      background-color: #cc0cbf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .blog-card button:hover {
+      background-color: #a800a8;
+    }
+
+    #coin-display {
+      font-size: 1.2em;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar Section -->
+<nav>
+  <a href="javascript:history.back()" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+  <div style="width: 100%; text-align: center;">
+    <h1 style="margin: 0;">AdtaskFusion</h1>
+  </div>
+</nav>
+
+<!-- Blog Content -->
+<h1 style="text-align: center;">Watch videos to Earn</h1>
+
+<div class="blog-container" id="blogs-container">
+  <!-- Blog 1 -->
+  <div class="blog-card" id="blog1">
+    <h2>Adtask Fusion: The Easiest Way to Earn FREE Cryptocurrency Daily!</h2>
+    <p>Looking for a simple and fun way to earn FREE cryptocurrency every day? You've come to the right place! In this video, we’ll show you how Adtask Fusion makes it easy to earn crypto through</p>
+    <button onclick="startReading('https://youtu.be/M_rG5VOFNSg?si=46vrQLLcet1We_pv')">Watch</button>
+  </div>
+
+  <!-- Blog 2 (Different Blogger) -->
+  <div class="blog-card" id="blog2">
+    <h2>Adtask Fusion: Earn Free Crypto Every 15 Minutes | Fast & Easy Rewards Explained!</h2>
+    <p>Ready to earn FREE crypto effortlessly? 💰 Discover how Adtask Fusion lets you claim rewards every 15 minutes, complete simple tasks, play fun games, and even earn from referrals! </p>
+    <button onclick="startReading('https://youtu.be/3y16plpVfn8?si=rMu-FPNMZ_Cq3VnU')">Watch</button>
+  </div>
+
+  <!-- Blog 3 (Different Blogger) -->
+  <div class="blog-card" id="blog3">
+    <h2>subscribe to AdtaskFusion</h2>
+    <p>Ready to earn FREE crypto effortlessly? 💰 Discover how Adtask Fusion lets you claim rewards every 15 minutes, complete simple tasks, play fun games, and even earn from referrals! </p>
+    <button onclick="startReading('https://www.youtube.com/channel/UCc_Qhpz25KYvHcgKrAR0FwA?sub_confirmation=1')">subscribe</button>
+  </div>
+
+ 
+</div>
+
+<!-- Coin Display -->
+<div id="coin-display">
+  Coins Earned: <span id="coins">0</span>
+</div>
+
+<script src="blog.js"></script>
+
+</body>
+</html>

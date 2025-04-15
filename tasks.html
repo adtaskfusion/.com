@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Tasks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #116dc4; 
+            color: #000000; 
+            margin: 0;
+            padding: 0;
+        }
+
+        #balance-container {
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        .task-container {
+            margin: 10px auto;
+            max-width: 600px;
+        }
+
+        .task {
+            margin: 10px auto;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #000000; 
+            border-radius: 12px;
+            background-color: #ffffff; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            width: 80%;
+        }
+
+        .task:hover {
+            transform: translateY(-5px);
+        }
+
+        .task-detail {
+            display: flex;
+            align-items: center;
+        }
+
+        .task-image img {
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        .task h4 {
+            margin: 0;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        .task-data {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .task-data img {
+            margin-right: 5px;
+        }
+
+        .task-data h5 {
+            margin: 0;
+            color: #ffcc00;
+            font-size: 18px;
+        }
+
+        .task-button {
+            background-color: #114f8a; 
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .task-button:hover {
+            background-color: #2dd60c;
+        }
+        .tasks.scrollable {
+            max-height: 400px; 
+            overflow-y: auto; 
+            margin: 20px auto;
+            width: 90%;       
+            padding-right: 10px;
+            border: 1px solid #ffffff; 
+        }
+        @media (max-width: 600px) {
+            .task-container {
+                max-width: 100%;
+            }
+
+            .task-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .task h4 {
+                font-size: 16px;
+            }
+        }
+
+ .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #114f8a;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+        .nav-item {
+            color: #f0f0f0;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+        .nav-item i {
+            font-size: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+   
+
+    <div id="balance-container">
+        <h2><b>_____________</b></h2>
+
+        <h2><b>🎯 TASKS 🎯</b></h2>
+    
+        <span id="balance">0</span> tasks completed </div>
+<div id="coin-display">
+  Coins Earned: <span id="coins">0</span>
+</div>
+    
+    <h2><b>_______________</b></h2>
+
+    <section class="tasks scrollable">
+    <div class="task-container">
+        <div class="task">
+            <div class="task-detail">
+                <div class="task-image">
+                    <img src="you.gif" width="45px" alt="">
+                </div>
+                <div>
+                    <h4>Subscribe on YouTube</h4>
+                    <div class="task-data">
+                        <img src="logo.png" width="20px" alt="Coin Icon">
+                        
+                    </div>
+                </div>
+            </div>
+            <button class="task-button" onclick="completeTask(1, 'https://www.youtube.com/channel/UCc_Qhpz25KYvHcgKrAR0FwA?sub_confirmation=1')">claim</button>
+        </div>
+    
+        <div class="task-container">
+            <div class="task">
+                <div class="task-detail">
+                    <div class="task-image">
+                        <img src="ista.png" width="45px" alt="">
+                    </div>
+                    <div>
+                        <h4>Follow on Instagram</h4>
+                        <div class="task-data">
+                            <img src="logo.png" width="20px" alt="Coin Icon">
+                            
+                        </div>
+                    </div>
+                </div>
+                <button class="task-button" onclick="completeTask(1, ' https://www.instagram.com/adtask.fusion')">claim</button>
+            </div>
+            <div class="task-container">
+                <div class="task">
+                    <div class="task-detail">
+                        <div class="task-image">
+                            <img src="x.png" width="45px" alt="">
+                        </div>
+                        <div>
+                            <h4>Follow on X</h4>
+                            <div class="task-data">
+                                <img src="logo.png" width="20px" alt="Coin Icon">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <button class="task-button" onclick="completeTask(1, 'https://x.com/adtask_fusion')">claim</button>
+                </div>
+               
+                    </section>
+
+
+           </div>
+       <nav class="bottom-nav">
+        <a href="./blogs.html" class="nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>BLOGS</span>
+        </a>
+        <a href="./games.html" class="nav-item">
+            <i class="fas fa-gamepad"></i>
+            <span>GAMES</span>
+        </a>
+        <a href="./tasks.html" class="nav-item">
+            <i class="fas fa-tasks"></i>
+            <span>TASKS</span>
+        </a>
+    </nav>
+
+    <script src="js.js"></script>
+    <script src="main.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>

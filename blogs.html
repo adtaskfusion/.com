@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AdtaskFusion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    /* General Body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal.active {
+      display: flex;
+    }
+
+    /* Navigation (Logo, Profile, Hamburger etc.) */
+    nav {
+      background: #114f8a;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    /* Profile and Welcome Section */
+    .welcome-container {
+      padding: 20px;
+      text-align: center;
+    }
+    .user-profile img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+    .user-profile h2 {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    #coin-display {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* Horizontal Scroll for Blogs */
+    .game-container {
+      padding: 10px;
+    }
+    .activity-container {
+      display: flex;
+      overflow-x: scroll;
+      gap: 15px;
+      padding-bottom: 10px;
+    }
+    .blog-card {
+      flex: 0 0 auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    .blog-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .blog-card h4 {
+      font-size: 1em;
+      margin: 10px 0 5px;
+    }
+    .blog-card p {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+    .blog-card a {
+      color: #0f5fab ;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Bottom Navigation (Mobile) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #114f8a ;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+    .nav-item {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+    }
+    .nav-item i {
+      font-size: 18px;
+    }
+
+    /* Snackbar for Notifications */
+    .snackbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+    .snackbar.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+<!-- User Modal -->
+<div class="modal" id="userModal">
+  <div class="modal-content">
+    <h2>Enter Your Details</h2>
+    <input type="text" id="username" placeholder="Enter Name"><br><br>
+    <input type="file" id="profilePic" accept="image/*"><br><br>
+    <button onclick="saveUserInfo()">Save</button>
+  </div>
+</div>
+
+<!-- Main Content -->
+<nav>
+  <div class="logo">AdtaskFusion</div>
+</nav>
+
+<div class="welcome-container">
+  <div class="user-profile" onclick="openModal()">
+    <img id="displayPic" class="user-img" src="default-avatar.png" alt="Profile Picture">
+    <h2 id="displayName">Hello, User!</h2>
+   <div id="coin-display">
+  Coins Earned: <span id="coins">0</span>
+</div>
+  </div>
+</div>
+
+<section class="game-container">
+  <h3>View Blog to Earn</h3>
+  <div class="activity-container">
+    <div class="blog-card">
+      <img src="read.jpg" alt="Blog 1" />
+      <h4>Read Blogs and Earn Coins</h4>
+      <p>Quick guide to start earning through simple mini app. 💸</p>
+      <a href="blog.html">Read More</a>
+    </div>
+    
+    <!-- Add more blog cards as needed -->
+  </div>
+</section>
+<section class="game-container">
+  <h3>Watch videos to Earn</h3>
+  <div class="activity-container">
+    <div class="blog-card">
+      <img src="watch.png" alt="Blog 1" />
+      <h4>AdtaskFusion </h4>
+      <p>Ready to earn FREE crypto effortlessly? 💰 Discover how Adtask Fusion lets you claim rewards every 15 minutes, complete simple tasks, play fun games, and even earn from referrals! </p>
+      <a href="videos.html">watch </a>
+    </div>
+    
+    <!-- Add more blog cards as needed -->
+  </div>
+</section>
+<br><br><br>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="bottom-nav">
+  <a href="./blogs.html" class="nav-item">
+    <i class="fas fa-newspaper"></i>
+    <span>BLOGS</span>
+  </a>
+  <a href="./games.html" class="nav-item">
+    <i class="fas fa-gamepad"></i>
+    <span>GAMES</span>
+  </a>
+  <a href="./tasks.html" class="nav-item">
+    <i class="fas fa-tasks"></i>
+    <span>TASKS</span>
+  </a>
+</nav>
+
+<!-- JS Scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    loadUserInfo();
+  });
+
+  function openModal() {
+    const savedName = localStorage.getItem("username");
+    const savedPic = localStorage.getItem("profilePic");
+
+    if (!savedName || !savedPic) {
+      document.getElementById("userModal").classList.add("active");
+    } else {
+      showSnackbar("You have already set your profile. Changes are not allowed.");
+    }
+  }
+
+  function saveUserInfo() {
+    const username = document.getElementById("username").value;
+    const profilePic = document.getElementById("profilePic").files[0];
+
+    if (!username || !profilePic) {
+      showSnackbar("Please enter your name and upload a profile picture.");
+      return;
+    }
+
+    localStorage.setItem("username", username);
+    document.getElementById("displayName").innerText = `Hello, ${username}!`;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      localStorage.setItem("profilePic", e.target.result);
+      document.getElementById("displayPic").src = e.target.result;
+    };
+    reader.readAsDataURL(profilePic);
+
+    document.getElementById("userModal").classList.remove("active");
+  }
+
+  function loadUserInfo() {
+    const savedName = localStorage.getItem("username");
+    const savedPic = localStorage.getItem("profilePic");
+
+    if (savedName) {
+      document.getElementById("displayName").innerText = `Hello, ${savedName}!`;
+    }
+    if (savedPic) {
+      document.getElementById("displayPic").src = savedPic;
+    }
+
+    if (!savedName || !savedPic) {
+      document.getElementById("userModal").classList.add("active");
+    }
+  }
+
+  function showSnackbar(message) {
+    const snackbar = document.createElement("div");
+    snackbar.className = "snackbar";
+    snackbar.innerText = message;
+    document.body.appendChild(snackbar);
+
+    setTimeout(() => {
+      snackbar.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+      snackbar.classList.remove("show");
+      setTimeout(() => document.body.removeChild(snackbar), 300);
+    }, 3000);
+  }
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
